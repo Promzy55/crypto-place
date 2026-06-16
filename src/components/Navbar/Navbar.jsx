@@ -4,7 +4,7 @@ import arrow from '../../assets/icons8-arrow-32.png'
 import { CoinContext } from '../../context/CoinContext'
 import { WatchlistContext } from '../../context/watchlistContext'
 import { Link, useLocation } from 'react-router-dom'
-
+import StarButton from '../../components/StarButton/starButton'
 const Navbar = () => {
   const { setCurrency } = useContext(CoinContext)
   const { watchlist } = useContext(WatchlistContext)
