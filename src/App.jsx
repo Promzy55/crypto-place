@@ -1,19 +1,27 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
-import { Routes,Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Coin from './pages/Coin/Coin'
+import Watchlist from './pages/watchlist/Watchlist'
+import Portfolio from './pages/Portfolio/Portfolio'
 import Footer from './components/Footer/Footer'
+import WatchlistProvider from './context/watchlistContext'
+
 const App = () => {
   return (
-    <div className='app'>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/coin/:coinId' element={<Coin />} />
-      </Routes>
-      <Footer/>
-    </div>
+    <WatchlistProvider>
+      <div className='app'>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/coin/:coinId' element={<Coin />} />
+          <Route path='/watchlist' element={<Watchlist />} />
+          <Route path='/portfolio' element={<Portfolio />} />
+        </Routes>
+        <Footer />
+      </div>
+    </WatchlistProvider>
   )
 }
 

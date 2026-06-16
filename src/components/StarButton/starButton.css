@@ -1,0 +1,21 @@
+.star-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #444;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.2s, transform 0.2s;
+  line-height: 1;
+}
+
+.star-btn:hover {
+  color: #facc15;
+  transform: scale(1.2);
+}
+
+.star-btn.starred {
+  color: #facc15;
+  text-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+}
