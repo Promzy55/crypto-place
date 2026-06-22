@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Coin.css'
 import { useParams, Link } from 'react-router-dom'
-import StarButton from '../../components/starButton/StarButton'
+import StarButton from '../../components/StarButton/starButton'
 import { CoinContext } from '../../context/CoinContext'
 import {
   AreaChart,
