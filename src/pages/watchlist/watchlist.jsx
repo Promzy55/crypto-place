@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import './Watchlist.css'
+import './watchlist.css'
 import { Link } from 'react-router-dom'
 import { WatchlistContext } from '../../context/watchlistContext'
 import { CoinContext } from '../../context/CoinContext'
