@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import './Portfolio.css'
+import './portfolio.css'
 import { Link } from 'react-router-dom'
 import { CoinContext } from '../../context/CoinContext'
 

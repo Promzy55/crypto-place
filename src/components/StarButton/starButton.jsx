@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { WatchlistContext } from '../../context/watchlistContext'
-import './StarButton.css'
+import './starButton.css'
 
 const StarButton = ({ coin }) => {
   const { isWatched, toggleWatchlist } = useContext(WatchlistContext)
