@@ -28,7 +28,7 @@ const CoinContextProvider = (props) => {
     return Date.now() - cached.timestamp < CACHE_DURATION
   }
 
-  // Exponential backoff retry logic
+ 
   const fetchWithRetry = async (url, options, retries = 0) => {
     try {
       const response = await fetch(url, {
@@ -42,7 +42,7 @@ const CoinContextProvider = (props) => {
 
       return await response.json()
     } catch (err) {
-      // Don't retry on abort
+    
       if (err.name === 'AbortError') {
         throw err
       }
@@ -69,7 +69,7 @@ const CoinContextProvider = (props) => {
       return
     }
 
-    // Create new abort controller for this request
+    
     abortControllerRef.current = new AbortController()
     setLoading(true)
     setError(null)
@@ -88,7 +88,7 @@ const CoinContextProvider = (props) => {
 
       const data = await fetchWithRetry(url, options)
 
-      // Cache the successful response
+      
       cacheRef.current[currency.name] = {
         data,
         timestamp: Date.now(),
@@ -108,7 +108,7 @@ const CoinContextProvider = (props) => {
         details: err.message,
       })
 
-      // Fallback to cached data if available (even if expired)
+      
       const fallbackData = cacheRef.current[currency.name]
       if (fallbackData) {
         console.log('Using stale cache as fallback')

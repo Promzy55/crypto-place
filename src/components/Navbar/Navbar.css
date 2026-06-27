@@ -11,7 +11,7 @@
   -webkit-backdrop-filter: blur(20px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
 }
 
 /* Brand */
@@ -71,8 +71,7 @@
 
 .nav-links li { position: relative; }
 
-.nav-links a,
-.nav-soon {
+.nav-links a {
   display: inline-block;
   padding: 7px 14px;
   border-radius: 8px;
@@ -90,12 +89,6 @@
 .nav-active {
   color: #fff !important;
   background: rgba(121,39,255,0.15) !important;
-}
-
-.nav-soon {
-  color: #444;
-  cursor: not-allowed;
-  font-size: 14px;
 }
 
 /* Watchlist badge */
@@ -134,11 +127,7 @@
 }
 
 .navbar select:hover { border-color: rgba(255,255,255,0.3); }
-
-.navbar option {
-  background-color: #111;
-  color: white;
-}
+.navbar option { background-color: #111; color: white; }
 
 .signup-btn {
   display: flex;
@@ -155,163 +144,122 @@
   transition: opacity 0.2s, transform 0.2s;
 }
 
-.signup-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
+.signup-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 .signup-btn img { width: 12px; }
 
-/* ── RESPONSIVE ─────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .navbar { padding: 16px 5%; }
-  .nav-links { gap: 2px; }
-  .nav-links a, .nav-soon { padding: 7px 10px; font-size: 13px; }
-  .market-status { display: none; }
-}
-
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .navbar { padding: 16px 5%; }
-}
-
-@media (max-width: 500px) {
-  .brand-name { font-size: 18px; }
-  .signup-btn { padding: 8px 14px; font-size: 13px; }
-}
-/* ── HAMBURGER MENU ─────────────────────────────────── */
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
-  background: none;
-  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
   cursor: pointer;
-  padding: 8px;
   gap: 5px;
-  z-index: 101;
+  flex-shrink: 0;
 }
 
 .hamburger span {
-  width: 24px;
-  height: 2.5px;
+  width: 18px;
+  height: 2px;
   background: #ddd;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  display: block;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(10px, 10px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-.mobile-menu-overlay {
+/* ── MOBILE MENU ────────────────────────────────────── */
+.mobile-nav {
   display: none;
   position: fixed;
-  top: 0;
+  top: 57px;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 99;
+  background: rgba(8,8,12,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-direction: column;
+  z-index: 199;
+  padding: 8px 0;
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 6%;
+  font-size: 15px;
+  font-weight: 500;
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s, color 0.15s;
+}
+
+.mobile-link:hover { background: rgba(255,255,255,0.04); color: #fff; }
+
+.mobile-active {
+  color: #fff !important;
+  background: rgba(121,39,255,0.12) !important;
+  border-left: 3px solid #7927ff;
+}
+
+.mobile-currency {
+  padding: 14px 6%;
+}
+
+.mobile-select {
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mobile-select option { background: #111; }
+
+/* Backdrop */
+.mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 198;
+  top: 57px;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 1024px) {
   .navbar { padding: 16px 5%; }
   .nav-links { gap: 2px; }
-  .nav-links a, .nav-soon { padding: 7px 10px; font-size: 13px; }
+  .nav-links a { padding: 7px 10px; font-size: 13px; }
   .market-status { display: none; }
 }
 
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .mobile-menu-overlay {
-    display: block;
-  }
-
-  .navbar { 
-    padding: 16px 4%;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(8, 8, 12, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav-links.mobile-open {
-    max-height: 300px;
-  }
-
-  .nav-links li {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .nav-links a,
-  .nav-soon {
-    display: block;
-    width: 100%;
-    padding: 14px 5%;
-    border-radius: 0;
-    text-align: left;
-  }
-
-  .nav-links a:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .market-status { display: none; }
-
-  .nav-right {
-    gap: 8px;
-  }
-
-  .navbar select {
-    padding: 7px 8px;
-    font-size: 12px;
-  }
-
-  .signup-btn {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
+  .navbar { padding: 16px 5%; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: flex; }
+  .mobile-backdrop { display: block; }
+  .navbar select { display: none; }
 }
 
 @media (max-width: 500px) {
   .brand-name { font-size: 18px; }
-  .brand { gap: 8px; }
-  .brand-icon { font-size: 18px; }
-
-  .nav-right {
-    gap: 6px;
-  }
-
-  .signup-btn { 
-    padding: 7px 10px; 
-    font-size: 12px; 
-  }
-
-  .navbar select {
-    display: none;
-  }
+  .signup-btn { padding: 8px 12px; font-size: 13px; }
+  .signup-btn img { display: none; }
 }

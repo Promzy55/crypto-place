@@ -3,8 +3,10 @@ import Navbar from './components/Navbar/Navbar'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Coin from './pages/Coin/Coin'
-import Watchlist from './pages/watchlist/watchlist'
-import Portfolio from './pages/Portfolio/Portfolio'
+import Watchlist from './pages/Watchlist/watchlist'
+import Portfolio from './pages/Portfolio/portfolio'
+import News from './pages/News/news'
+import Trade from './pages/Trade/trade'
 import Footer from './components/Footer/Footer'
 import WatchlistProvider from './context/watchlistContext'
 
@@ -18,6 +20,8 @@ const App = () => {
           <Route path='/coin/:coinId' element={<Coin />} />
           <Route path='/watchlist' element={<Watchlist />} />
           <Route path='/portfolio' element={<Portfolio />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/trade' element={<Trade />} />
         </Routes>
         <Footer />
       </div>
